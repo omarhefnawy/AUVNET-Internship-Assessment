@@ -45,6 +45,9 @@ dependencies:
   hive:
   hive_flutter:
   path_provider:
+  shared_preferences:
+  dartz:
+  get_it:
 
 
 dev_dependencies:
