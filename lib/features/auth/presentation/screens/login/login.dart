@@ -1,4 +1,6 @@
+import 'package:auvent_intership/config/constants/appSession.dart';
 import 'package:auvent_intership/core/network/local/cache_helper/cache_helper.dart';
+import 'package:auvent_intership/features/auth/presentation/widgets/customSnackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -32,12 +34,18 @@ class _LoginScreenState extends State<LoginScreen> {
         backgroundColor: Colors.white,
         body: BlocListener<AuthBloc, AuthState>(
           listener: (context, state) {
+            ScaffoldMessenger.of(context).clearSnackBars();
             if (state is LoginSuccess) {
-              CacheHelper.setData(key: "login", value: true);
+              print(state.user);
+              AppSession.currentUser=state.user;
+               CacheHelper.setData(key: "login", value: true);
               ScaffoldMessenger.of(context).showSnackBar(
-                SnackBar(content: Text("Login success"),backgroundColor: Colors.amber,),
+               CustomSnackBar(context, Colors.orangeAccent),
               );
-              Navigator.pushReplacementNamed(context, 'home');
+              //
+              Future.delayed(Duration.zero, () {
+                Navigator.pushReplacementNamed(context, 'home');
+              });
             } else if (state is AuthFailure) {
               ScaffoldMessenger.of(context).showSnackBar(
                 SnackBar(content: Text(state.message),backgroundColor: Colors.red,),
@@ -57,7 +65,7 @@ class _LoginScreenState extends State<LoginScreen> {
                       SizedBox(height: height * 0.05),
 
                       Image.asset(
-                        "assets/logo.png",
+                        "assets/images/logo.png",
                         width: width * 0.4,
                       ),
 

@@ -1,5 +1,4 @@
 
-import 'package:auvent_intership/features/auth/domain/entities/user_entity.dart';
 import 'package:firebase_auth/firebase_auth.dart';
   abstract class AuthDataSource {
   Future<User> login(String email, String password);

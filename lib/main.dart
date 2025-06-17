@@ -1,7 +1,9 @@
+import 'package:auvent_intership/config/constants/appSession.dart';
 import 'package:auvent_intership/core/network/local/cache_helper/cache_helper.dart';
 import 'package:auvent_intership/features/auth/presentation/auth_bloc/auth_bloc.dart';
 import 'package:auvent_intership/features/auth/presentation/screens/regester/regester.dart';
 import 'package:auvent_intership/features/introductions/screens/splash/splash.dart';
+import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -20,7 +22,7 @@ void main() async{
   CacheHelper.init();
   //service locator
   serviceLocator();
-  runApp(const MyApp());
+  runApp(DevicePreview(builder: (context) =>const MyApp() ,));
 
 }
 

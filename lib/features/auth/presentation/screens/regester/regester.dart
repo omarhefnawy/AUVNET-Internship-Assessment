@@ -53,7 +53,7 @@ class _SignUpScreenState extends State<SignUpScreen> {
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
                     SizedBox(height: height * 0.05),
-                    Image.asset("assets/logo.png", width: width * 0.4),
+                    Image.asset("assets/images/logo.png", width: width * 0.4),
                     SizedBox(height: height * 0.06),
 
                     CustomTextField(
