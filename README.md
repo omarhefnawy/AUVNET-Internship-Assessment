@@ -1,47 +1,60 @@
-#Flutter internship Task
-This Flutter project was developed by Omar Hefnawy as part of the Auvent Internship. It includes a full implementation of user authentication and a dynamic services module with Firebase integration using Clean Architecture.
+## AUVNET Flutter Task
+This Flutter app was developed by Omar Hefnawy as part of the AUVNET internship task.
+It includes authentication, service management, local caching, and follows Clean Architecture principles.
 
-Authentication
-Register, Login, and Sign out functionalities using Firebase Authentication.
+## Authentication
+Register, login, and sign out using Firebase Authentication
 
-State management using Bloc.
+State management with Bloc
 
-Use Cases: LoginUseCase, RegisterUseCase, SignOutUseCase.
+Use Cases:
 
-Services Management
-Admin can upload services categorized into Food, Health, and Grocery.
+LoginUseCase
 
-Users can view and navigate services by category.
+RegisterUseCase
 
-Data is stored in Firebase Firestore and cached locally using Hive.
+SignOutUseCase
 
-Extra Features
-On the login page, there's an Admin button.
-No login or credentials needed — tapping it takes you directly to the upload screen.
+## Services Management
+Admin can upload services categorized into:
 
-Users can tap any service category to see the uploaded content inside.
+Food
 
-Architecture
-The project follows Clean Architecture principles:
+Health & Wellness
 
-Data Layer: Data sources (remote with Firebase, local with Hive), repositories.
+Groceries
 
-Domain Layer: Use cases and entities.
+Users can view and navigate services by category
 
-Presentation Layer: Bloc and UI screens.
+Data is stored in Firebase Firestore and cached locally using Hive
+
+## Extra Features
+Admin button on the login screen:
+No login or credentials needed. Tapping it goes directly to the upload page.
+
+Users can tap any service category to view the uploaded content.
+
+## Architecture
+The app follows Clean Architecture:
+
+Data Layer: Firebase and Hive data sources, repositories
+
+Domain Layer: Entities and use cases
+
+Presentation Layer: Bloc and UI
 
 Features Implemented
-Authentication with Firebase
+Firebase Authentication
 
-Bloc structure for both Auth and Services
+Bloc for Auth and Services
 
-Upload and fetch categorized services
+Upload and view services by category
 
-Local caching using Hive
+Local caching with Hive
 
-Category-based dynamic navigation
+Responsive UI
 
-Fully responsive UI
+Clean Architecture structure
 
-#Developer
+## Developer
 Omar Hefnawy
