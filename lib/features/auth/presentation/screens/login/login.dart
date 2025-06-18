@@ -1,9 +1,10 @@
-import 'package:auvent_intership/config/constants/appSession.dart';
+
 import 'package:auvent_intership/core/network/local/cache_helper/cache_helper.dart';
 import 'package:auvent_intership/features/auth/presentation/widgets/customSnackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
+import '../../../../admin/prsentation/screens/admin.dart';
 import '../../auth_bloc/auth_bloc.dart';
 import '../../auth_bloc/auth_states.dart';
 import '../../auth_bloc/blocEvent.dart';
@@ -33,18 +34,17 @@ class _LoginScreenState extends State<LoginScreen> {
       child: Scaffold(
         backgroundColor: Colors.white,
         body: BlocListener<AuthBloc, AuthState>(
-          listener: (context, state) {
+          listener: (context, state)async {
             ScaffoldMessenger.of(context).clearSnackBars();
             if (state is LoginSuccess) {
               print(state.user);
-              AppSession.currentUser=state.user;
-               CacheHelper.setData(key: "login", value: true);
+              await CacheHelper.setData(key: "login", value: true);
               ScaffoldMessenger.of(context).showSnackBar(
-               CustomSnackBar(context, Colors.orangeAccent),
+               CustomSnackBar(context, Colors.orangeAccent,"login success"),
               );
               //
               Future.delayed(Duration.zero, () {
-                Navigator.pushReplacementNamed(context, 'home');
+                Navigator.pushNamed(context, "home");
               });
             } else if (state is AuthFailure) {
               ScaffoldMessenger.of(context).showSnackBar(
@@ -120,6 +120,10 @@ class _LoginScreenState extends State<LoginScreen> {
                           );
                         },
                       ),
+                      SizedBox(height: 5,),
+                      CustomButton(text: "admin", onPressed: () {
+                        Navigator.push(context, MaterialPageRoute(builder: (context) => AdminHomeScreen(),));
+                      },),
 
                       SizedBox(height: height * 0.03),
 

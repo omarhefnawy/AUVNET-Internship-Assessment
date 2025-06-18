@@ -1,14 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
-SnackBar CustomSnackBar(BuildContext context,Color color)
+SnackBar CustomSnackBar(BuildContext context,Color color,String text)
 {
   return SnackBar(
     content: Row(
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Text(
-          "Login success",
+          text,
           style: TextStyle(fontSize: 16, color: Colors.black87),
         ),
         IconButton(
